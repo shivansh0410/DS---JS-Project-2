@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Queue Implementation</title>
+  </head>
+  <body>
+    <h1>Queue Implementation</h1>
+    <div id="queue">
+      <p id="queue-elements"></p>
+    </div>
+    <button id="enqueue-button">Enqueue</button>
+    <button id="dequeue-button">Dequeue</button>
+    <button id="display-button">Display Queue</button>
+    <button id="peek-front-button">Peek Front</button>
+    <button id="peek-rear-button">Peek Rear</button>
+
+    <script>
+        class Queue {
+  constructor(capacity) {
+    this.capacity = capacity;
+    this.queue = [];
+    this.front = 0;
+    this.rear = 0;
+  }
+
+  isFull() {
+    return this.rear === this.capacity;
+  }
+
+  isEmpty() {
+    return this.front === this.rear;
+  }
+
+  enqueue(element) {
+    if (this.isFull()) {
+      return "No more elements can be added.";
+    }
+    this.queue[this.rear++] = element;
+  }
+
+  dequeue() {
+    if (this.isEmpty()) {
+      return "Elements cannot be removed, the queue is empty.";
+    }
+    const element = this.queue[this.front];
+    this.queue[this.front++] = undefined;
+    return element;
+  }
+
+  display() {
+    if (this.isEmpty()) {
+      return "Elements cannot be displayed, the queue is empty.";
+    }
+    return this.queue.slice(this.front, this.rear).join(", ");
+  }
+
+  peekFront() {
+    if (this.isEmpty()) {
+      return "The queue is empty.";
+    }
+    return this.queue[this.front];
+  }
+
+  peekRear() {
+    if (this.isEmpty()) {
+      return "The queue is empty.";
+    }
+    return this.queue[this.rear - 1];
+  }
+}
+
+const queue = new Queue(5);
+const enqueueButton = document.getElementById("enqueue-button");
+const dequeueButton = document.getElementById("dequeue-button");
+const displayButton = document.getElementById("display-button");
+const peekFrontButton = document.getElementById("peek-front-button");
+const peekRearButton = document.getElementById("peek-rear-button");
+const queueElements = document.getElementById("queue-elements");
+
+enqueueButton.addEventListener("click", function() {
+  const element = prompt("Enter the element to enqueue:");
+  queueElements.innerText = queue.enqueue(element);
+});
+
+dequeueButton.addEventListener("click", function() {
+  queueElements.
+
+    </script>
+  </body>
+</html>

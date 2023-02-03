@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Bubble Sort</title>
+</head>
+<body>
+    <h1>Bubble sorting</h1>
+    <script>
+        function swap(arr, xp, yp)
+{
+    var temp = arr[xp];
+    arr[xp] = arr[yp];
+    arr[yp] = temp;
+}
+ 
+function bubbleSort( arr, n)
+{
+var i, j;
+for (i = 0; i < n-1; i++)
+{
+    for (j = 0; j < n-i-1; j++)
+    {
+        if (arr[j] > arr[j+1])
+        {
+        swap(arr,j,j+1);
+         
+        }
+    }
+ 
+}
+}
+ 
+function printArray(arr, size)
+{
+    var i;
+    for (i=0; i < size; i++)
+        document.write(arr[i]+ " ");
+    document.write("\n");
+}
+ 
+  var arr = [50,20,60,40,30,10];
+    var n = 6;
+    document.write("UnSorted array: \n");
+    printArray(arr, n);
+ 
+    bubbleSort(arr, n);
+    document.write("Sorted array: \n");
+    printArray(arr, n);
+    </script>
+</body>
+</html>

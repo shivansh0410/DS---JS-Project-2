@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack Implementation</title>
+</head>
+
+<body>
+    <h1>Stack With input Elements</h1>
+    <input type="text" placeholder="Enter Stack Element" id="newE1">
+    <button onclick="stack.push(prompt('Enter element to add'))">Push Element</button>
+    <button onclick="stack.pop()">Pop Element</button>
+    <button onclick="stack.display()">Display Stack</button>
+    
+    <script>
+        class Stack {
+  constructor(capacity) {
+    this.capacity = capacity;
+    this.elements = [];
+  }
+
+  push(element) {
+    if (this.elements.length === this.capacity) {
+      return alert("No more elements can be added");
+    }
+    this.elements.push(element);
+  }
+
+  pop() {
+    if (this.elements.length === 0) {
+      return alert("Elements cannot be removed");
+    }
+    this.elements.pop();
+  }
+
+  display() {
+    if (this.elements.length === 0) {
+      return alert("Elements cannot be displayed");
+    }
+    alert(this.elements);
+  }
+}
+
+const stack = new Stack(3);
+
+    </script>
+</body>
+
+</html>
